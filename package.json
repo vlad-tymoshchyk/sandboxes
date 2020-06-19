@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "nodemon -w ./__run -x ./__run",
     "react:start": "react-scripts start",
-    "react:test": "react-scripts test",
-    "c:start": "nodemon -w ./__compile -x ./__compile"
+    "react:test": "react-scripts test"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
