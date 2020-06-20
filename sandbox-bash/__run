@@ -1,0 +1,3 @@
+!#/bin/bash
+
+nodemon -w index.bash -x "clear && bash index.bash || exit 1"
