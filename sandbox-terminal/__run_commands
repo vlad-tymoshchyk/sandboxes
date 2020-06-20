@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+. ./share.sh
+
+while read command; do
+  tmux send-keys -t $session_name "$command" C-m
+done < ./commands.bash

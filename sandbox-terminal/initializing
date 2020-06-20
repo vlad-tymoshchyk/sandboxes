@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+. ./share.sh
+
+if tmux has-session -t $session_name;
+then
+  tmux kill-session -t $session_name
+fi
+
+tmux new-session -s $session_name
