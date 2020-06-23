@@ -8,13 +8,6 @@ then
   exit 1
 fi
 
-# first_window=1
-# second_window=2
-
-# is_window_open() {
-#   tmux has-session -t "${session_name}:${1}" 2> /dev/null
-# }
-
 create_window() {
   tmux new-window -t "${session_name}:${1}"
 }
@@ -22,21 +15,6 @@ create_window() {
 kill_window() {
   tmux kill-window -t "${session_name}:${1}"
 }
-
-# if is_window_open $first_window && ! is_window_open $second_window;
-# then
-#   create_window $second_window
-#   kill_window $first_window
-#   window=$second_window
-# elif ! is_window_open $first_window && is_window_open $second_window;
-# then
-#   create_window $first_window
-#   kill_window $second_window
-#   window=$first_window
-# else
-#   echo "Something went wrong.\nEither both windows ${first_window} and ${second_window} are opened or none of them."
-#   exit 1;
-# fi
 
 create_window
 kill_window 1
@@ -50,9 +28,9 @@ while read command; do
     else
       if [[ $command =~ ( C-[a-z])$ ]];
       then
-        tmux send-keys -t $session_name "${command%% C-m}" C-m
+        tmux send-keys -t $session_name "${command%%${BASH_REMATCH}}" ${BASH_REMATCH}
       else
-        tmux send-keys -t $session_name "${command}" "${BASH_REMATCH}"
+        tmux send-keys -t $session_name "${command}"
       fi
     fi
   fi

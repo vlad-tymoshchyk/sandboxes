@@ -1,0 +1,8 @@
+se nu
+se rnu
+se noswapfile
+inoremap jk <Esc> 
+
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+call plug#end()
