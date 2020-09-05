@@ -1,0 +1,3 @@
+!#/bin/bash
+
+nodemon -w index.lua -x "clear && lua index.lua || exit 1"
