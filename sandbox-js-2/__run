@@ -1,0 +1,3 @@
+!#/bin/bash
+
+nodemon -w index.js -x "clear && node index.js || exit 1"
