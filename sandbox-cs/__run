@@ -1,0 +1,3 @@
+!#/bin/bash
+
+nodemon -w main.cs -x "clear && csc main.cs && mono main.exe || exit 1"
